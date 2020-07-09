@@ -144,5 +144,6 @@ python manage.py migrate
  - then update the database servers with the new migrations
 ```
 python manage.py makemigrations
+python manage.py migrate
 ```
 
