@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="card-columns">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Medical</h5>
+        <p class="card-text"><small class="text-muted">Schnucks: $209.15</small></p>
+        <p class="card-text"><small class="text-muted">QuikTrip: $29.10</small></p>
+        <p class="card-text"><small class="text-muted">Amazon: $54.65</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Cars</h4>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">Car: {cars(id)}</p>
+            <p class="card-title">Ins: {cars(id).insurance}</p>
+            <p class="card-text"><small class="text-muted">Years with Company: {cars(id).insurance.origin}</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">Car: {cars(id)}</p>
+            <p class="card-title">Ins: {cars(id).insurance}</p>
+            <p class="card-text"><small class="text-muted">Years with Company: {cars(id).insurance.origin}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Life Policies</h4>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">Policy: {insurance.policy(id)}</p>
+            <p class="card-text"><small class="text-muted">Value: {insurance.policy(id).value}</small></p>
+            <p class="card-text"><small class="text-muted">Cost/Month: {insurance.policy(id).charge}</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">Policy: {insurance.policy(id)}</p>
+            <p class="card-text"><small class="text-muted">Value: {insurance.policy(id).value}</small></p>
+            <p class="card-text"><small class="text-muted">Cost/Month: {insurance.policy(id).charge}</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-title">Policy: {insurance.policy(id)}</p>
+            <p class="card-text"><small class="text-muted">Value: {insurance.policy(id).value}</small></p>
+            <p class="card-text"><small class="text-muted">Cost/Month: {insurance.policy(id).charge}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

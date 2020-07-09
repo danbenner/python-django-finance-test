@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="card-rows">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Total Debt</h4>
+        <p class="card-text">{sum(all totalDebt)}</p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vs 30 Days Ago</h5>
+            <p class="card-text"><small class="text-muted">({sub(totalDebt.today, (totalDebt.date.today - 30))})</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Vs Last Year</h5>
+            <p class="card-text"><small class="text-muted">({sub(totalDebt.today, (totalDebt.date.today - 365))})</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Lifetime</h5>
+            <p class="card-text"><small class="text-muted">[Histogram: (beginning of data) to (now)]</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">By Category</h4>
+        <div class="container">
+          <p class="card-text"><small class="text-muted">[BarChart: (category.name: category.debt)]</small></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Home Mortgage</h4>
+        <div class="container">
+          <p class="card-text">Total Debt: {mortgage.debt}</p>
+          <p class="card-text">Value: {ZEstimate}</p>
+          <p class="card-text">Equity: {mortgage.equity}</p>
+          <p class="card-text">Rate: {mortgage.rate}</p>
+          <div class="card">
+            <div class="card-body">
+              <a href="https://www.zillow.com/homes/646-Wilmer-Meadow-Dr-Wentzville,-MO,-63385_rb/305144609_zpid/" target="_blank">
+                <img
+                  src="https://maps.googleapis.com/maps/api/staticmap?center=38.792491,-90.863255&zoom=16&size=1024x234&maptype=roadmap&key=AIzaSyARFMLB1na-BBWf7_R3-5YOQQaHqEJf6RQ&scale=2&signature=fDRhoAbkEESPqK2ieD2wE9u0HGw="
+                  class="card-img-top"
+                  alt="..."
+                >
+              </a>
+              <p class="card-text"><small class="text-muted">646 Wilmer Meadow Drive</small></p>
+              <p class="card-text"><small class="text-muted">Wentzville, MO 63385</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Credit Cards</h4>
+        <p class="card-text">Total Debt: {cards.debt.sum}</p>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 1</h5>
+            <p class="card-text"><small class="text-muted">Total: ${cards(id).debt}</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Card 2</h5>
+            <p class="card-text"><small class="text-muted">Total: ${cards(id).debt}</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Auto</h4>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Car 1</h5>
+            <p class="card-text"><small class="text-muted">Total: ${cars(id).debt}</small></p>
+            <p class="card-text"><small class="text-muted">APR: ${cars(id).apr}</small></p>
+            <p class="card-text"><small class="text-muted">Insurance: ${cars(id).ins}</small></p>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Maintenance Schedule</h5>
+                <p>[Calendar for General Requirements]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Car 2</h5>
+            <p class="card-text"><small class="text-muted">Total: ${cars(id).debt}</small></p>
+            <p class="card-text"><small class="text-muted">APR: ${cars(id).apr}</small></p>
+            <p class="card-text"><small class="text-muted">Insurance: ${cars(id).ins}</small></p>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Maintenance Schedule</h5>
+                <p>[Calendar for General Requirements]</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Student Loans</h4>
+        <div class="card">
+          <div class="card-body">
+            <p class="card-text"><small class="text-muted">Balance: ${studentLoans.debt}</small></p>
+            <p class="card-text"><small class="text-muted">Last Payment: ${studentLoans.lastPayment}</small></p>
+            <p class="card-text"><small class="text-muted">Total: ${studentLoans.debt}</small></p>
+            <div class="container">
+              <div class="card">
+                <div class="flexy flexy-column card-body">
+                  <table>
+                    <tr>
+                      <th>#</th>
+                      <th>Date</th>
+                      <th>Name</th>
+                      <th>Status</th>
+                      <th>Balance</th>
+                      <th>Rate</th>
+                      <th>Type</th>
+                    </tr>
+                    <tr>
+                      <td>{studentLoans(id).number}</td>
+                      <td>{studentLoans(id).date}</td>
+                      <td>{studentLoans(id).name}</td>
+                      <td>{studentLoans(id).status}</td>
+                      <td>${studentLoans(id).balance}</td>
+                      <td>{studentLoans(id).rate}</td>
+                      <td>{studentLoans(id).type}</td>
+                    </tr>
+                    <tr>
+                      <td>{studentLoans(id).number}</td>
+                      <td>{studentLoans(id).date}</td>
+                      <td>{studentLoans(id).name}</td>
+                      <td>{studentLoans(id).status}</td>
+                      <td>${studentLoans(id).balance}</td>
+                      <td>{studentLoans(id).rate}</td>
+                      <td>{studentLoans(id).type}</td>
+                    </tr>
+                    <tr>
+                      <td>{studentLoans(id).number}</td>
+                      <td>{studentLoans(id).date}</td>
+                      <td>{studentLoans(id).name}</td>
+                      <td>{studentLoans(id).status}</td>
+                      <td>${studentLoans(id).balance}</td>
+                      <td>{studentLoans(id).rate}</td>
+                      <td>{studentLoans(id).type}</td>
+                    </tr>
+                    <tr>
+                      <td>{studentLoans(id).number}</td>
+                      <td>{studentLoans(id).date}</td>
+                      <td>{studentLoans(id).name}</td>
+                      <td>{studentLoans(id).status}</td>
+                      <td>${studentLoans(id).balance}</td>
+                      <td>{studentLoans(id).rate}</td>
+                      <td>{studentLoans(id).type}</td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

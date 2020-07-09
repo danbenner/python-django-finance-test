@@ -1,0 +1,40 @@
+{% load static %}
+<!-- Navbar -->
+<div class="sidebar">
+
+  {% if '/' == request.path %}
+    <a class="active" href="{% url 'home' %}">Home</a>
+  {% else %}
+    <a href="{% url 'home' %}">Home</a>
+  {% endif %}
+
+  {% if 'savings' in request.path %}
+    <a class="active" href="{% url 'savings' %}">Savings</a>
+  {% else %}
+    <a href="{% url 'savings' %}">Savings</a>
+  {% endif %}
+
+  {% if 'spending' in request.path %}
+    <a class="active" href="{% url 'spending' %}">Spending</a>
+  {% else %}
+    <a href="{% url 'spending' %}">Spending</a>
+  {% endif %}
+
+  {% if 'debt' in request.path %}
+    <a class="active" href="{% url 'debt' %}">Debt</a>
+  {% else %}
+    <a href="{% url 'debt' %}">Debt</a>
+  {% endif %}
+
+  {% if 'taxes' in request.path %}
+    <a class="active" href="{% url 'taxes' %}">Taxes</a>
+  {% else %}
+    <a href="{% url 'taxes' %}">Taxes</a>
+  {% endif %}
+
+  {% if 'insurance' in request.path %}
+    <a class="active" href="{% url 'insurance' %}">Insurance</a>
+  {% else %}
+    <a href="{% url 'insurance' %}">Insurance</a>
+  {% endif %}
+</div>

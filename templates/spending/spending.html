@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="card-columns">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Transactions</h5>
+        <p class="card-text"><small class="text-muted">Schnucks: $209.15</small></p>
+        <p class="card-text"><small class="text-muted">QuikTrip: $29.10</small></p>
+        <p class="card-text"><small class="text-muted">Amazon: $54.65</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Budget</h5>
+        <p class="card-text"><small class="text-muted">Allotted: $2500 -> Spent so far: $1890.45</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Spending Trend</h5>
+        <p class="card-text"><small class="text-muted">[BarGraph: (Earned/Days over Spent) Legend: (compare last month this day vs today) ]</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Forecast</h5>
+        <p class="card-text"><small class="text-muted">[BarGraph: (Spent | upcoming bills | leftover)]</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Upcoming Bills</h5>
+        <p class="card-text"><small class="text-muted">Bill: $45.30</small></p>
+        <p class="card-text"><small class="text-muted">Bill: $15.30</small></p>
+        <p class="card-text"><small class="text-muted">Bill: $945.30</small></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Spending Breakdown</h5>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Past 30 Days</h5>
+            <p class="card-text"><small class="text-muted">[PieChart/CircleChart]</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Yearly</h5>
+            <p class="card-text"><small class="text-muted">[PieChart/CircleChart]</small></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Forever</h5>
+            <p class="card-text"><small class="text-muted">[PieChart/CircleChart]</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
